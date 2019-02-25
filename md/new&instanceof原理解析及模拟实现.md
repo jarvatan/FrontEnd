@@ -62,3 +62,22 @@
     car.start();
     // black car start
 ```
+
+#   模拟实现instanceof 
+`instanceof` 运算符用来检测 `constructor.prototype` 是否存在于参数 object 的原型链上。
+```
+    function instanceof1 (left, right) {
+        // 获取类型原型
+        let prototype = right.prototype
+        // 获取对象原型
+        left = left.__proto__
+        // 判断对象的类型是否等于类型的原型
+        while (true) {
+            if (left === null)
+                return false
+            if (left === prototype)
+                return true
+            left = left.__proto__
+        }
+    }
+```
