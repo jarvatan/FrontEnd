@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    {{this.$store.state.count}}
+    {{this.$store.getters.newCount}}
+    <button @click="change">add</button>
     <HelloWorld msg="Welcome to Visit My Website"/>
   </div>
 </template>
@@ -13,6 +15,14 @@ export default {
   name: 'home',
   components: {
     HelloWorld
+  },
+  mounted () {
+    console.log(this.$store)
+  },
+  methods: {
+    change () {
+      this.$store.dispatch('change')
+    }
   }
 }
 </script>
